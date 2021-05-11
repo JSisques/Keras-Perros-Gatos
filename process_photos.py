@@ -19,7 +19,7 @@ for file in listdir(path_train_dogs):
     # 0 for dogs, 1 for cats
     output = 0.0
 
-    photo = load_img(path_train_dogs +  file, target_size=(48, 48))
+    photo = load_img(path_train_dogs +  file, target_size=(150, 150))
     photo = img_to_array(photo)
 
     
@@ -32,7 +32,7 @@ for file in listdir(path_train_cats):
     # 0 for dogs, 1 for cats
     output = 1.0
 
-    photo = load_img(path_train_cats +  file, target_size=(48, 48))
+    photo = load_img(path_train_cats +  file, target_size=(150, 150))
     photo = img_to_array(photo)
 
     photos.append(photo)

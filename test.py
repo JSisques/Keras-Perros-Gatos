@@ -22,7 +22,7 @@ photos_dogs = []
 for file in listdir(path_test_cats):
     print('Gatos: ', file)
 
-    photo = load_img(path_test_cats +  file, target_size=(48, 48))
+    photo = load_img(path_test_cats +  file, target_size=(150, 150))
     photo = img_to_array(photo)
 
     

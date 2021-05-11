@@ -23,7 +23,7 @@ print(labels[0])
 model = kr.Sequential()
 
 #Capa 1
-model.add(kr.layers.Conv2D(32, activation='relu', kernel_size=(3,3),  input_shape=(48, 48, 3)))
+model.add(kr.layers.Conv2D(32, activation='relu', kernel_size=(3,3),  input_shape=(150, 150, 3)))
 model.add(kr.layers.MaxPooling2D(2,2))
 
 #Capa 2
@@ -31,7 +31,7 @@ model.add(kr.layers.Conv2D(64, kernel_size=(3,3), activation='relu'))
 model.add(kr.layers.MaxPooling2D(2,2))
 
 #Capa 3
-model.add(kr.layers.Conv2D(128, kernel_size=(3,3), activation='relu'))
+model.add(kr.layers.Conv2D(64, kernel_size=(3,3), activation='relu'))
 model.add(kr.layers.MaxPooling2D(2,2))
 
 #Capa 4
@@ -53,7 +53,7 @@ model.compile(
 
 print(model.summary())
 
-model.fit(photos, labels, epochs=10)
+model.fit(photos, labels, epochs=5)
 
 model.save('model.h5')
 
