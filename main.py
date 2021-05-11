@@ -1,6 +1,7 @@
 import tensorflow.keras as kr
 import numpy as np
 import matplotlib.pyplot as plt
+import os
 
 from keras.preprocessing.image import ImageDataGenerator, load_img
 from keras.models import load_model, save_model
@@ -26,6 +27,7 @@ input_shape = (img_width, img_height, 3)
 
 
 def main():
+    '''
     model = create_model()
 
     train_generator = create_train_datagen()
@@ -55,6 +57,9 @@ def main():
 
     show_net_stats(history)
     save_model(model)
+    '''
+
+    model = load_custom_model()
 
     predict_images(model)
 
@@ -177,6 +182,9 @@ def show_net_stats(history):
 def save_model(model):
     model.save('model.h5')
 
+def load_custom_model():
+    return load_model('model1.h5')
+
 def predict_images(model):
     counter = 0
     dog_counter = 0
@@ -198,9 +206,11 @@ def predict_images(model):
             if classes == 0:
                 print(file + ": cat")
                 cat_counter += 1
+                os.rename(test_data_directory + file, "./Cats/" + file)
             else:
                 print(file + ": dog")
                 dog_counter += 1
+                os.rename(test_data_directory + file, "./Dogs/" + file)
         except:
             print('Error')
     
